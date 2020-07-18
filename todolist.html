@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TODO LIST</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link  rel="stylesheet" href ="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+</head>
+<style type="text/css">
+	html{
+        height:100%;
+        width:100%;
+    }
+    body{
+        height:100%;
+        width:100%;
+        background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+background-repeat: no-repeat
+    }
+	#header{
+		margin:auto;
+		width:50%;
+		margin-top:10%;
+		padding:5px;
+
+	}
+	#footer{
+		width:50%;
+		margin:auto;
+		border:2px solid black;
+		padding-top:10px;
+	}
+	li{
+		list-style: none;
+
+	}
+	h1{
+	margin-top:5%;	
+
+	}
+	.fa-plus{
+		font-size: 24px;
+	}
+	.fas:hover{
+		cursor: pointer;
+	}
+</style>
+<body>
+<div class="container">
+	<h1 class="text-info text-center display-3">TODO LIST</h1>
+
+		<div class="row d-flex justify-content-center bg-secondary" id="header">
+
+			<input type="text" placeholder="Add new Item here..."><i class="fas fa-plus m-2 " id="addbtn"></i>
+		</div>
+		<div class="row  bg-info" id="footer">	
+			<ul>
+				<li><i class="fas fa-trash"></i>Todos will be added here</li>
+			</ul>
+		</div>	
+</div>
+<script type="text/javascript">
+	var addbtn= document.getElementById('addbtn');
+	// Add Event To Add data
+	addbtn.addEventListener('click',adddata);
+	function adddata(){
+		var input=document.querySelector('input').value;
+		var ul = document.querySelector('ul');
+		var li = document.createElement('li');
+		ul.appendChild( li);
+		li.innerHTML=`
+			<i class="fas fa-trash"></i> ${input}
+		`;
+		document.querySelector('input').value='';
+	}
+	var ul = document.querySelector('ul');
+	
+		ul.addEventListener('click',deldata);
+	
+	function deldata(e){
+
+		e.target.parentElement.style.display="none";
+	}
+</script>	
+</body>
+</html>
